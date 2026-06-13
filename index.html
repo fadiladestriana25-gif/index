@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PMB UTDI 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f6f8fc;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#1c4fae;
+z-index:1000;
+}
+
+/* LOGO DENGAN BACKGROUND PUTIH */
+.logo{
+background:#ffffff;
+padding:8px 15px;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo img{
+height:45px;
+width:auto;
+display:block;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul a{
+text-decoration:none;
+color:white;
+font-weight:500;
+font-size:14px;
+transition:.3s;
+}
+
+nav ul a:hover{
+color:#FFC107;
+}
+
+.btn-nav{
+background:#FFC107;
+padding:10px 22px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+color:#001b4d;
+transition:.3s;
+}
+
+.btn-nav:hover{
+background:#FFD54F;
+}
+
+/* HERO / BERANDA */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:130px 8% 80px;
+background:
+linear-gradient(135deg,#001B4D,#003AA8,#143f8f);
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:600px;
+height:600px;
+background:#FFC107;
+opacity:.1;
+border-radius:50%;
+right:-200px;
+top:-200px;
+}
+
+.hero-content{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+width:100%;
+}
+
+.hero-image{
+width:50%;
+border-radius:25px;
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+animation:float 4s ease-in-out infinite;
+object-fit:cover;
+}
+
+.hero-text{
+color:white;
+width:50%;
+}
+
+.badge{
+display:inline-block;
+background:#FFC107;
+padding:10px 20px;
+border-radius:30px;
+color:#4268af;
+font-weight:700;
+font-size:14px;
+margin-bottom:20px;
+}
+
+.hero-text h1{
+font-size:65px;
+line-height:1.1;
+margin-bottom:20px;
+font-weight:800;
+}
+
+.hero-text span{
+color:#FFD54F;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.hero-btn{
+display:flex;
+gap:15px;
+}
+
+.btn-primary{
+background:#FFC107;
+color:#2058c0;
+padding:15px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+transition:.3s;
+}
+
+.btn-primary:hover{
+background:#FFD54F;
+transform:translateY(-3px);
+}
+
+.btn-secondary{
+border:2px solid white;
+padding:15px 35px;
+border-radius:50px;
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn-secondary:hover{
+background:white;
+color:#001b4d;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+/* SECTION */
+
+section{
+padding:90px 8%;
+}
+
+.title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.title h2{
+font-size:38px;
+color:#002a7f;
+font-weight:700;
+}
+
+.title p{
+color:#777;
+}
+
+/* CARDS */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+text-align:center;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.icon{
+font-size:45px;
+margin-bottom:15px;
+}
+
+.card h3{
+color:#002a7f;
+margin-bottom:10px;
+font-size:18px;
+}
+
+.card p{
+color:#666;
+font-size:14px;
+line-height:1.6;
+}
+
+/* PRODI */
+
+.prodi-card{
+background:#002a7f;
+color:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+font-weight:600;
+transition:.3s;
+}
+
+.prodi-card:hover{
+background:#143f8f;
+transform:translateY(-5px);
+}
+
+/* PARTNER */
+
+.partners{
+background:#002a7f;
+color:white;
+padding:90px 8%;
+}
+
+.partner-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:40px;
+}
+
+.partner-item{
+text-align:center;
+}
+
+.partner-card{
+background:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
+display:flex;
+align-items:center;
+justify-content:center;
+height:80px;
+}
+
+.partner-card img{
+max-width:90%;
+max-height:60px;
+object-fit:contain;
+}
+
+.partner-name{
+text-align:center;
+margin-top:10px;
+font-size:13px;
+font-weight:600;
+}
+
+/* TESTIMONI */
+
+.testimonial-card{
+background:white;
+max-width:800px;
+margin:auto;
+padding:40px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.testimonial-card p{
+font-size:16px;
+line-height:1.8;
+color:#555;
+font-style:italic;
+margin:20px 0;
+}
+
+.stars{
+color:#FFC107;
+font-size:20px;
+}
+
+.alumni{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+margin-top:25px;
+}
+
+.alumni img{
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #FFC107;
+}
+
+.alumni-info h3{
+color:#002a7f;
+font-size:16px;
+}
+
+.alumni-info p{
+color:#777;
+font-size:13px;
+}
+
+/* CTA */
+
+.cta{
+background:
+linear-gradient(135deg,#001b4d,#143270);
+text-align:center;
+color:white;
+padding:90px 8%;
+}
+
+.cta h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.cta p{
+font-size:18px;
+opacity:.9;
+}
+
+/* FOOTER */
+
+footer{
+background:#00153d;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+footer p{
+font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero-content{
+flex-direction:column-reverse;
+text-align:center;
+}
+
+.hero-image,
+.hero-text{
+width:100%;
+}
+
+.hero-text h1{
+font-size:38px;
+}
+
+.hero-btn{
+justify-content:center;
+}
+
+.partner-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.logo{
+padding:5px 10px;
+}
+
+.logo img{
+height:35px;
+}
+
+nav ul{
+display:none;
+}
+
+.hero{
+padding:120px 5% 60px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+<div class="logo">
+<img src="logoutdi.png" alt="logoutdi.png">
+</div>
+
+<ul>
+<li><a href="#beranda">Beranda</a></li>
+<li><a href="#keunggulan">Keunggulan</a></li>
+<li><a href="#prodi">Program Studi</a></li>
+<li><a href="#mitra">Mitra</a></li>
+<li><a href="#testimoni">Testimoni</a></li>
+</ul>
+
+<a href="https://pmb.utdi.ac.id" target="_blank" class="btn-nav">
+Daftar Sekarang
+</a>
+
+</nav>
+
+<!-- BERANDA / HERO SECTION -->
+<section id="beranda" class="hero">
+
+<div class="hero-content">
+
+<img src="utdi.jpeg" class="hero-image" data-aos="fade-right" alt="utdi.jpeg">
+
+<div class="hero-text" data-aos="fade-left">
+
+<div class="badge">
+🎓 Penerimaan Mahasiswa Baru 2026
+</div>
+
+<h1>
+MASA DEPAN DIGITAL<br>
+DIMULAI DARI <span>UTDI</span>
+</h1>
+
+<p>
+Universitas Teknologi Digital Indonesia membentuk 
+talenta digital yang siap menghadapi industri dan 
+berpartisipasi secara global.
+</p>
+
+<div class="hero-btn">
+
+<a href="https://pmb.utdi.ac.id" target="_blank" class="btn-primary">
+Daftar Sekarang
+</a>
+
+<a href="#prodi" class="btn-secondary">
+Lihat Program Studi
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- KEUNGULAN -->
+<section id="keunggulan">
+
+<div class="title">
+<h2>Mengapa Memilih UTDI?</h2>
+<p>Membangun generasi digital Indonesia yang kompeten</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">💻</div>
+<h3>Kurikulum Adaptif</h3>
+<p>Mengikuti perkembangan teknologi terbaru dan kebutuhan industri.</p>
+</div>
+
+<div class="card">
+<div class="icon">🏢</div>
+<h3>Fasilitas Modern</h3>
+<p>Laboratorium digital dan fasilitas pembelajaran lengkap.</p>
+</div>
+
+<div class="card">
+<div class="icon">👨‍🏫</div>
+<h3>Dosen Profesional</h3>
+<p>Dosen berpengalaman dari dunia industri teknologi.</p>
+</div>
+
+<div class="card">
+<div class="icon">🤝</div>
+<h3>Jaringan Mitra</h3>
+<p>Kerjasama dengan perusahaan nasional dan internasional.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROGRAM STUDI -->
+<section id="prodi">
+
+<div class="title">
+<h2>Program Studi Unggulan</h2>
+<p>Pilih jalur karir Anda di dunia digital</p>
+</div>
+
+<div class="grid">
+
+<div class="prodi-card">💻 S1 Informatika</div>
+<div class="prodi-card">🌐 S1 Sistem Informasi</div>
+<div class="prodi-card">⚙️ S1 Teknik Komputer</div>
+<div class="prodi-card">📈 S1 Bisnis Digital</div>
+<div class="prodi-card">🏪 S1 Manajemen Ritel</div>
+
+</div>
+
+</section>
+
+<!-- MITRA INDUSTRI -->
+<section id="mitra" class="partners">
+
+<div class="title">
+<h2 style="color:white">Mitra Industri & Peluang Karier</h2>
+</div>
+
+<div class="partner-grid">
+
+<div class="partner-item">
+<div class="partner-card">
+<img src="bni.png" alt="bni.png">
+</div>
+<p class="partner-name">PT Bank Negara Indonesia</p>
+</div>
+
+<div class="partner-item">
+<div class="partner-card">
+<img src="inka.jpeg" alt="inka.jpeg">
+</div>
+<p class="partner-name">PT Industri Kereta Api</p>
+</div>
+
+<div class="partner-item">
+<div class="partner-card">
+<img src="bluebird.jpeg" alt="bluebird.jpeg">
+</div>
+<p class="partner-name">PT Blue Bird Tbk</p>
+</div>
+
+<div class="partner-item">
+<div class="partner-card">
+<img src="UT.png" alt="UT.png">
+</div>
+<p class="partner-name">PT United Tractors Tbk</p>
+</div>
+
+<div class="partner-item">
+<div class="partner-card">
+<img src="sinarmas.png" alt="sinarmas.png">
+</div>
+<p class="partner-name">PT Sinar Mas</p>
+</div>
+
+<div class="partner-item">
+<div class="partner-card">
+<img src="kemenkeu.png" alt="kemenkeu.png">
+</div>
+<p class="partner-name">Kementerian Keuangan</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni">
+
+<div class="title">
+<h2>Apa Kata Alumni?</h2>
+</div>
+
+<div class="testimonial-card">
+
+<div class="stars">⭐⭐⭐⭐⭐</div>
+
+<p>
+"Kuliah di UTDI memberikan fondasi yang kuat dan relevan 
+untuk menghadapi tantangan industri. Kurikulum selalu 
+mengikuti perkembangan teknologi, dosen berpengalaman, 
+dan pembelajaran sangat aplikatif."
+</p>
+
+<div class="alumni">
+
+<img src="ali.jpeg" alt="ali.jpeg"">
+
+<div class="alumni-info">
+<h3>Ali Impron</h3>
+<p>Kepala Divisi IT & Dosen</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta">
+
+<h2>Siap Menjadi Talenta Digital Masa Depan?</h2>
+
+<p>
+Daftarkan diri Anda sekarang dan mulai perjalanan 
+digital bersama UTDI.
+</p>
+
+<br><br>
+
+<a href="https://pmb.utdi.ac.id" target="_blank" class="btn-primary">
+Daftar Sekarang
+</a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Universitas Teknologi Digital Indonesia (UTDI)</p>
+</footer>
+
+<!-- AOS ANIMATION -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+duration:1000,
+once:true
+});
+</script> 
+
+</body>
+</html>
